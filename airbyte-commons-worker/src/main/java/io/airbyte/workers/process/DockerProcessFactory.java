@@ -118,7 +118,7 @@ public class DockerProcessFactory implements ProcessFactory {
       }
 
       if (!jobRoot.toFile().exists()) {
-        Files.createDirectory(jobRoot);
+        Files.createDirectories(jobRoot);
       }
 
       for (final Map.Entry<String, String> file : files.entrySet()) {
