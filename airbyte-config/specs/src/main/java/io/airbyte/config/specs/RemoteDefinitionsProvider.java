@@ -220,7 +220,8 @@ public class RemoteDefinitionsProvider implements DefinitionsProvider {
             "getConnectorRegistryEntry request ran into status code error: " + response.code() + " with message: " + response.message());
       }
     } catch (final IOException e) {
-      throw new RuntimeException(String.format("Failed to fetch connector registry entry for %s:%s", connectorName, version), e);
+      LOGGER.warn(String.format("Failed to fetch connector registry entry for %s:%s", connectorName, version), e);
+      return Optional.empty();
     }
   }
 
